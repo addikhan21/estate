@@ -1,0 +1,33 @@
+<odoo>
+    <data>
+        <record id="estate_property_offer_views" model="ir.ui.view">
+            <field name="name">Estate_property_offer_views</field>
+            <field name="model">estateproperty.offer</field>
+            <field name="priority" eval="16"/>
+            <field name="arch" type="xml">
+                <form string="name">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="offer_price"/>
+                                <field name="status"/>
+                                <field name="partner_id"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="estate_property_offer_tree" model="ir.ui.view">
+            <field name="name">estate_property.offer.tree</field>
+            <field name="model">estateproperty.offer</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="offer_price"/>
+                    <field name="status"/>
+                    <field name="partner_id"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

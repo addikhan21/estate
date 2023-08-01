@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_estate_property,access_estate_property,model_estate_property,,1,1,1,1
+access_estateproperty_type,access_estateproperty_type,model_estateproperty_type,,1,1,1,1
+access_estateproperty_offer,access_estateproperty_offer,model_estateproperty_offer,,1,1,1,1
+access_estateproperty_testcompute,access_estateproperty_testcompute,model_estateproperty_testcompute,,1,1,1,1
+

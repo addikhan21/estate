@@ -1,0 +1,136 @@
+<odoo>
+    <data>
+        <record id="estate_property_views" model="ir.ui.view">
+            <field name="name">Estate_property_views</field>
+            <field name="model">estate.property</field>
+            <field name="priority" eval="16"/>
+            <field name="arch" type="xml">
+                <form string="name">
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <label for="name" string="house" class="oe_edit_only"/>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="property_type_id"/>
+                                <field name="postcode"/>
+                                <field name="availible_form"/>
+                            </group>
+                            <group>
+                                <field name="expected_price"/>
+                                <field name="best_price"/>
+                                <field name="selling_price"/>
+                            </group>
+                            <notebook>
+                                <page string="Description">
+                                    <form>
+                                        <group>
+                                            <field name="Title"/>
+                                            <field name="description"/>
+                                            <field name="bedrooms"/>
+                                            <field name="garden"/>
+                                            <field name="garden_area"/>
+                                            <field name="living_area_SQM"/>
+                                            <field name="facades"/>
+                                            <field name="garage"/>
+                                            <field name="garden_orientation"/>
+                                            <field name="state"/>
+                                            <field name="gender"/>
+                                            <field name="total_area"/>
+                                        </group>
+                                    </form>
+                                </page>
+                                <page string="Other Info">
+                                    <form>
+                                        <group>
+                                            <field name="salesperson"/>
+                                            <field name="buyer"/>
+                                        </group>
+                                    </form>
+                                </page>
+                                <page string="Offers">
+                                    <form>
+                                        <group>
+                                            <field name="offer_price"/>
+                                            <field name="property_id"/>
+                                            <field name="status"/>
+                                            <field name="validity"/>
+                                            <field name="Deadline"/>
+                                        </group>
+                                    </form>
+                                </page>
+                            </notebook>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="estate_property_views_tree" model="ir.ui.view">
+            <field name="name">estate.property.tree</field>
+            <field name="model">estate.property</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="tag_ids"/>
+                    <field name="Title"/>
+                    <field name="postcode"/>
+                    <field name="bedrooms"/>
+                    <field name="living_area_SQM"/>
+                    <field name="expected_price"/>
+                    <field name="selling_price"/>
+                    <field name="availible_form"/>
+                    <field name="state"/>
+                    <field name="gender"/>
+                    <field name="property_type_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="estate_property_search_view" model="ir.ui.view">
+            <field name="name">estate.property.search</field>
+            <field name="model">estate.property</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="Title" filter_domain="['|','|','|','|',('postcode','ilike',self),('bedrooms','ilike',self),
+                     ('living_area_SQM','ilike',self),('expected_price','ilike',self),('selling_price','ilike',self)
+                     ,('state','ilike',self)]"/>
+                    <field name="postcode"/>
+                    <field name="bedrooms"/>
+                    <field name="living_area_SQM"/>
+                    <field name="expected_price"/>
+                    <field name="selling_price"/>
+                    <field name="state"/>
+                    <field name="gender"/>
+                    <filter name="filter_state" string="new" domain="[('state','=','new')]"/>
+                    <filter name="filter_state" string="offer_accepted" domain="[('state','=','offer_accepted')]"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="estate_property_action" model="ir.actions.act_window">
+            <field name="name">properties</field>
+            <field name="res_model">estate.property</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+                id="estate_property_main"
+                name="Real Estate"
+                sequence="3"/>
+
+        <menuitem
+                id="estate_property_main1"
+                name="Advertisement"
+                parent="estate_property_main"
+                sequence="3"/>
+        <menuitem
+                id="estate_property_main_action"
+                name="properties"
+                parent="estate_property_main1"
+                action="estate_property_action"
+                sequence="3"/>
+    </data>
+</odoo>

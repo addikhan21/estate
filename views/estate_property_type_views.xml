@@ -1,0 +1,76 @@
+<odoo>
+    <data>
+        <record id="estate_property_type_views" model="ir.ui.view">
+            <field name="name">estate_property_type_views</field>
+            <field name="model">estateproperty.type</field>
+            <field name="priority" eval="16"/>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <label for="name" string="" class="oe_edit_only"/>
+                                <field name="name" readonly="1"/>
+                            </h1>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+<!--        <record id="estate_property_tag_views" model="ir.ui.view">-->
+<!--            <field name="name">estate.property.tag.tree</field>-->
+<!--            <field name="model">estateproperty.tag</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <tree>-->
+<!--                    <field name="Title"/>-->
+<!--                    <field name="postcode"/>-->
+<!--                </tree>-->
+<!--            </field>-->
+<!--        </record>-->
+        <record id="estate_property_type_tree" model="ir.ui.view">
+            <field name="name">estate.property.type.tree</field>
+            <field name="model">estateproperty.type</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="Title"/>
+                    <field name="postcode"/>
+                    <field name="bedrooms"/>
+                    <field name="living_area_SQM"/>
+                    <field name="expected_price"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <!--        <record id="estate_property_search_view" model="ir.ui.view">-->
+        <!--            <field name="name">estate.property.search</field>-->
+        <!--            <field name="model">estate.property</field>-->
+        <!--            <field name="arch" type="xml">-->
+        <!--                <search>-->
+        <!--                </search>-->
+        <!--            </field>-->
+        <!--        </record>-->
+
+        <record id="estate_property_type_action" model="ir.actions.act_window">
+            <field name="name">property.type</field>
+            <field name="res_model">estateproperty.type</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+                id="estate_property_type_main"
+                name="Settings"
+                parent="estate_property_main"
+                action="estate_property_action"
+                sequence="3"/>
+        <menuitem
+                id="estate_property_type_property_type"
+                name="property_type"
+                parent="estate_property_type_main"
+                action="estate_property_type_action"
+                sequence="2"/>
+
+
+    </data>
+</odoo>
